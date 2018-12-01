@@ -104,4 +104,25 @@ public class FirebaseManager {
 
 
     }
-}
+
+    public void AddToContacteAndShowPopUp(final String barcode){
+        final DatabaseReference usersReference = FirebaseDatabase.getInstance().getReference().child("users");
+
+        //Query referenceUser = usersReference.orderByKey().limitToLast(1);
+
+        usersReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int key = 0;
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    if(child.child("email").getValue().equals(barcode)){
+                     //TODO add To contacte and show pop up
+
+                }
+                }
+    } @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+});
+}}

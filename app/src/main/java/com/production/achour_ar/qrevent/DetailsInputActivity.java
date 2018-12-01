@@ -39,10 +39,17 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_input_act);
-
         initVieww();
+        setListener();
+
 
     }
+
+    private void setListener() {
+        startEventButton.setOnClickListener(this);
+        changePicTV.setOnClickListener(this);
+    }
+
 
     private void initVieww() {
         nameET = findViewById(R.id.input_name);
@@ -55,6 +62,8 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
         changePicTV = findViewById(R.id.changepictv);
         startEventButton = findViewById(R.id.starteventbutton);
     }
+
+
 
     @Override
     public void onClick(View view) {
@@ -71,7 +80,7 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
     private void startEvent() {
         if (areFieldsValid()){
             //TODO firebase part (Adam farahni)
-            new FirebaseManager().addInfoToFirebase(nameET.getText().toString(), firstnameET.getText().toString(), telnumberET.getText().toString(), fbET.getText().toString(), "chaboox@gmail.com", selectedBitmap );
+            new FirebaseManager().addInfoToFirebase(nameET.getText().toString(), firstnameET.getText().toString(), telnumberET.getText().toString(), fbET.getText().toString(), "chaboox@gmail.com", selectedBitmap, getApplicationContext() );
             startActivity(new Intent(DetailsInputActivity.this, BarcodeCaptureActivity.class));
         }
     }

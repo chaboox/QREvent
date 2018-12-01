@@ -39,9 +39,9 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_input_act);
+
         initVieww();
         setListener();
-
 
     }
 
@@ -49,7 +49,6 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
         startEventButton.setOnClickListener(this);
         changePicTV.setOnClickListener(this);
     }
-
 
     private void initVieww() {
         nameET = findViewById(R.id.input_name);
@@ -62,8 +61,6 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
         changePicTV = findViewById(R.id.changepictv);
         startEventButton = findViewById(R.id.starteventbutton);
     }
-
-
 
     @Override
     public void onClick(View view) {
@@ -80,7 +77,7 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
     private void startEvent() {
         if (areFieldsValid()){
             //TODO firebase part (Adam farahni)
-            new FirebaseManager().addInfoToFirebase(nameET.getText().toString(), firstnameET.getText().toString(), telnumberET.getText().toString(), fbET.getText().toString(), "chaboox@gmail.com", selectedBitmap, getApplicationContext() );
+            new FirebaseManager().addInfoToFirebase(nameET.getText().toString(), firstnameET.getText().toString(), telnumberET.getText().toString(), fbET.getText().toString(), "chaboox@gmail.com", selectedBitmap );
             startActivity(new Intent(DetailsInputActivity.this, BarcodeCaptureActivity.class));
         }
     }
@@ -146,8 +143,8 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
     private void setProfilePicToImageView(ImageView profilePicIV, Bitmap selectedBitmap) {
         profilePicIV.setImageBitmap(selectedBitmap);
         Log.d("PROFILE PIC", "setProfilePicToImageView: I'M ADJUSTING BRO");
-        profilePicIV.setAdjustViewBounds(true);
-        profilePicIV.setScaleType(ImageView.ScaleType.CENTER_CROP);
+      //  profilePicIV.setAdjustViewBounds(true);
+       // profilePicIV.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
     private void performCrop(String picturePath) {

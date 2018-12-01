@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.production.achour_ar.qrevent.Models.ContactModel;
@@ -22,6 +23,7 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
         TextView txtName;
         TextView txtFirstname;
         TextView txtEmail;
+        ImageView imgperso;
     }
 
 
@@ -29,7 +31,6 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
         super(context, R.layout.row_item, data);
         this.dataSet = data;
         this.mContext=context;
-        //startUpdateTimer();
     }
 
 
@@ -50,9 +51,10 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.row_item, parent, false);
-            //viewHolder.txtFirstname = (TextView) convertView.findViewById(R.id.);
-            //viewHolder.txtName = (TextView) convertView.findViewById(R.id.name);
-            //viewHolder.txtEmail = (TextView) convertView.findViewById(R.id.name);
+            viewHolder.txtFirstname =  convertView.findViewById(R.id.prenomb);
+            viewHolder.txtName =  convertView.findViewById(R.id.nomb);
+            viewHolder.txtEmail = convertView.findViewById(R.id.emailb);
+            viewHolder.imgperso =  convertView.findViewById(R.id.img_personel);
 
 
             result=convertView;
@@ -64,7 +66,10 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
 
         lastPosition = position;
 
-        //viewHolder.txtNom.setText(model.getName());
+        viewHolder.txtName.setText(model.getName());
+        viewHolder.txtFirstname.setText(model.getFirstname());
+        viewHolder.txtEmail.setText(model.getEmail());
+        //viewHolder.imgperso.setImageBitmap(model.get());
 
 
         // Return the completed view to render on screen

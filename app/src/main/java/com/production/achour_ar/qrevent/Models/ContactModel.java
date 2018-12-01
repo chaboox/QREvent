@@ -9,8 +9,9 @@ public class ContactModel {
     private String facebook;
     private String instagram;
     private String linkedin;
+    private String urlpic;
 
-    public ContactModel(String name, String firstname, String telphone, String email, String facebook, String instagram, String linkedin) {
+    public ContactModel(String name, String firstname, String telphone, String email, String facebook, String instagram, String linkedin, String urlpic) {
         this.name = name;
         this.firstname = firstname;
         this.telphone = telphone;
@@ -18,6 +19,7 @@ public class ContactModel {
         this.facebook = facebook;
         this.instagram = instagram;
         this.linkedin = linkedin;
+        this.urlpic = urlpic;
     }
 
     public String getName() {

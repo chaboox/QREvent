@@ -1,7 +1,13 @@
 package com.production.achour_ar.qrevent;
 
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBar;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,14 +22,32 @@ public class Activity_Profil extends AppCompatActivity {
     private TextView e_mail;
     private TextView nsta;
     private TextView link;
-
+    private String pathImg;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__profil);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.custom_action_bar_layout);
+        View view =getSupportActionBar().getCustomView();
+        TextView edit= (TextView) view.findViewById(R.id.edit);
+
         initView();
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Personne p = new Personne(nom_prenom.getText().toString(),e_mail.getText().toString(),book.getText().toString(),nsta.getText().toString(),link.getText().toString(),pathImg);
+                Intent intent = new Intent(Activity_Profil.this, Activity_EditProfil.class);
+                intent.putExtra("data1",  p);
+                startActivity(intent);
+            }
+        });
     }
     public void initView(){
         nom_prenom = findViewById(R.id.nomprenom);
@@ -37,4 +61,6 @@ public class Activity_Profil extends AppCompatActivity {
         image_linked = findViewById(R.id.image_linkedin);
         image_mail = findViewById(R.id.image_email);
     }
+
+
 }

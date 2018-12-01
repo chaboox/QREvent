@@ -23,6 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activity_Profil" />
+        <activity android:name=".DetailsInputActivity" />
+        <activity android:name=".Activity_EditProfil"></activity>
+        <activity android:name=".camera.BarcodeCaptureActivity"/>
+        <activity android:name=".Activity_Profil"></activity>
+        <activity android:name=".DetailsInputActivity"></activity>
         <activity android:name=".camera.BarcodeCaptureActivity" />
         <activity android:name=".Activity_Profil" />
         <activity android:name=".DetailsInputActivity" />

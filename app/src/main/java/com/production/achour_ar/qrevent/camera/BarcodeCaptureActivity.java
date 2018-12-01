@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.CommonStatusCodes;
+import com.production.achour_ar.qrevent.FirebaseManager;
 import com.production.achour_ar.qrevent.camera.CameraSource;
 import com.production.achour_ar.qrevent.R;
 import com.production.achour_ar.qrevent.camera.CameraSourcePreview;
@@ -429,7 +430,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
         //do something with barcode data returned
         Log.d(TAG, "onBarcodeDetected: "+barcode.rawValue+" "+barcode.format+" "+barcode.valueFormat);
 
-
+        new FirebaseManager().
       {
 
 

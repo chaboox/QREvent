@@ -27,10 +27,13 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
     private EditText firstnameET;
     private EditText telnumberET;
     private EditText fbET;
+    private EditText instagramET;
+    private EditText linkedinET;
     private ImageView profilePicIV;
     private TextView changePicTV;
     private Button startEventButton;
     private String picturePath;
+    private Bitmap selectedBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,13 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.details_input_act);
 
         initVieww();
+        setListener();
 
+    }
+
+    private void setListener() {
+        startEventButton.setOnClickListener(this);
+        changePicTV.setOnClickListener(this);
     }
 
     private void initVieww() {
@@ -46,6 +55,8 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
         firstnameET = findViewById(R.id.input_firstname);
         telnumberET = findViewById(R.id.input_telephone);
         fbET = findViewById(R.id.input_facebook);
+        instagramET = findViewById(R.id.input_instagram);
+        linkedinET = findViewById(R.id.input_linkedin);
         profilePicIV = findViewById(R.id.picprofileinput);
         changePicTV = findViewById(R.id.changepictv);
         startEventButton = findViewById(R.id.starteventbutton);
@@ -66,7 +77,7 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
     private void startEvent() {
         if (areFieldsValid()){
             //TODO firebase part (Adam farahni)
-
+            new FirebaseManager().addInfoToFirebase(nameET.getText().toString(), firstnameET.getText().toString(), telnumberET.getText().toString(), fbET.getText().toString(), "chaboox@gmail.com", selectedBitmap );
             startActivity(new Intent(DetailsInputActivity.this, BarcodeCaptureActivity.class));
         }
     }
@@ -100,7 +111,7 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
         if (requestCode == Constants.RESULT_CROP) {
             if(resultCode == Activity.RESULT_OK){
                 Bundle extras ;
-                Bitmap selectedBitmap = null;
+                 selectedBitmap = null;
 
                 if(!(data.getExtras()==null)){
                     try {

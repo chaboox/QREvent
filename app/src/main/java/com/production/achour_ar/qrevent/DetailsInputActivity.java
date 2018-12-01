@@ -27,6 +27,8 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
     private EditText firstnameET;
     private EditText telnumberET;
     private EditText fbET;
+    private EditText instagramET;
+    private EditText linkedinET;
     private ImageView profilePicIV;
     private TextView changePicTV;
     private Button startEventButton;
@@ -46,6 +48,8 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
         firstnameET = findViewById(R.id.input_firstname);
         telnumberET = findViewById(R.id.input_telephone);
         fbET = findViewById(R.id.input_facebook);
+        instagramET = findViewById(R.id.input_instagram);
+        linkedinET = findViewById(R.id.input_linkedin);
         profilePicIV = findViewById(R.id.picprofileinput);
         changePicTV = findViewById(R.id.changepictv);
         startEventButton = findViewById(R.id.starteventbutton);

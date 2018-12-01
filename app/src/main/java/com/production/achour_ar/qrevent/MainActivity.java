@@ -40,5 +40,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void login() {
         //TODO LOGIN (ADAM'S PART)
+
     }
 }

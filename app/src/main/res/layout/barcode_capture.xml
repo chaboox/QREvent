@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/topLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    android:weightSum="100">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.production.achour_ar.qrevent.camera.CameraSourcePreview
+            android:id="@+id/preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <com.production.achour_ar.qrevent.camera.GraphicOverlay
+                android:id="@+id/graphicOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+        </com.production.achour_ar.qrevent.camera.CameraSourcePreview>
+
+
+
+
+            <Button
+                android:id="@+id/done_g"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="50"
+                android:layout_margin="0dp"
+                android:background="#fff"
+                android:text="Done"
+                android:textColor="#000"
+                android:visibility="gone" />
+
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,13 +1,7 @@
 package com.production.achour_ar.qrevent;
 
-import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.ActionBar;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,7 +13,7 @@ public class Activity_Profil extends AppCompatActivity {
     private ImageView image_mail;
     private TextView nom_prenom;
     private TextView book;
-    private TextView e_mail;
+    private TextView email;
     private TextView nsta;
     private TextView link;
     private String pathImg;
@@ -27,7 +21,6 @@ public class Activity_Profil extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__profil);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -49,9 +42,11 @@ public class Activity_Profil extends AppCompatActivity {
             }
         });
     }
+
+
     public void initView(){
         nom_prenom = findViewById(R.id.nomprenom);
-        e_mail = findViewById(R.id.email);
+        email = findViewById(R.id.email);
         book = findViewById(R.id.facebook);
         nsta = findViewById(R.id.insta);
         link = findViewById(R.id.linkedin);

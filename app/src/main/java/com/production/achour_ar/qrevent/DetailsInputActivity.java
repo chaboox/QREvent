@@ -31,6 +31,7 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
     private TextView changePicTV;
     private Button startEventButton;
     private String picturePath;
+    private Bitmap selectedBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +67,7 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
     private void startEvent() {
         if (areFieldsValid()){
             //TODO firebase part (Adam farahni)
-
+            new FirebaseManager().addInfoToFirebase(nameET.getText().toString(), firstnameET.getText().toString(), telnumberET.getText().toString(), fbET.getText().toString(), "chaboox@gmail.com", selectedBitmap );
             startActivity(new Intent(DetailsInputActivity.this, BarcodeCaptureActivity.class));
         }
     }
@@ -100,7 +101,7 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
         if (requestCode == Constants.RESULT_CROP) {
             if(resultCode == Activity.RESULT_OK){
                 Bundle extras ;
-                Bitmap selectedBitmap = null;
+                 selectedBitmap = null;
 
                 if(!(data.getExtras()==null)){
                     try {

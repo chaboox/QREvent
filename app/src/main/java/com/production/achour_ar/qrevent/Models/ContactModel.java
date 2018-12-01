@@ -10,5 +10,41 @@ public class ContactModel {
     private String instagram;
     private String linkedin;
 
+    public ContactModel(String name, String firstname, String telphone, String email, String facebook, String instagram, String linkedin) {
+        this.name = name;
+        this.firstname = firstname;
+        this.telphone = telphone;
+        this.email = email;
+        this.facebook = facebook;
+        this.instagram = instagram;
+        this.linkedin = linkedin;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getTelphone() {
+        return telphone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public String getInstagram() {
+        return instagram;
+    }
+
+    public String getLinkedin() {
+        return linkedin;
+    }
 }

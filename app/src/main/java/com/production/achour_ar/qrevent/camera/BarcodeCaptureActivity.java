@@ -436,7 +436,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
 
               // ((Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE)).vibrate(200); // for 200 ms
 
-               (new ToneGenerator(AudioManager.STREAM_MUSIC, 100)).startTone(ToneGenerator.TONE_CDMA_PRESSHOLDKEY_LITE,200);
+            //   (new ToneGenerator(AudioManager.STREAM_MUSIC, 100)).startTone(ToneGenerator.TONE_CDMA_PRESSHOLDKEY_LITE,200);
         //   MainActivity.barcodeDisplay.add(barcode.displayValue);
            int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
            String currentMinute = Calendar.getInstance().get(Calendar.MINUTE)+"";

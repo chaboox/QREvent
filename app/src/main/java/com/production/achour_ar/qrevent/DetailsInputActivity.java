@@ -41,7 +41,13 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.details_input_act);
 
         initVieww();
+        setListener();
 
+    }
+
+    private void setListener() {
+        startEventButton.setOnClickListener(this);
+        changePicTV.setOnClickListener(this);
     }
 
     private void initVieww() {

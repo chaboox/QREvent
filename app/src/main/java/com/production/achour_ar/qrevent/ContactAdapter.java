@@ -29,7 +29,6 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
         super(context, R.layout.row_item, data);
         this.dataSet = data;
         this.mContext=context;
-        //startUpdateTimer();
     }
 
 
@@ -64,7 +63,9 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
 
         lastPosition = position;
 
-        //viewHolder.txtNom.setText(model.getName());
+        viewHolder.txtName.setText(model.getName());
+        viewHolder.txtFirstname.setText(model.getFirstname());
+        viewHolder.txtEmail.setText(model.getEmail());
 
 
         // Return the completed view to render on screen

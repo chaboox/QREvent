@@ -1,7 +1,10 @@
 package com.production.achour_ar.qrevent;
 
+import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,7 +38,7 @@ public class Activity_Profil extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Personne p = new Personne(nom_prenom.getText().toString(),e_mail.getText().toString(),book.getText().toString(),nsta.getText().toString(),link.getText().toString(),pathImg);
+                Personne p = new Personne(nom_prenom.getText().toString(),email.getText().toString(),book.getText().toString(),nsta.getText().toString(),link.getText().toString(),pathImg);
                 Intent intent = new Intent(Activity_Profil.this, Activity_EditProfil.class);
                 intent.putExtra("data1",  p);
                 startActivity(intent);

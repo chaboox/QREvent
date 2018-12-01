@@ -13,34 +13,50 @@
         android:layout_gravity="center"
         card_view:cardCornerRadius="4dp">
 
-
-        <LinearLayout
-            android:layout_margin="10dp"
+        <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/imageshap"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/nomb"
-                android:textColor="@color/black"
-                android:text="Bella"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/nomb"
+                    android:textColor="@color/black"
+                    android:text="Bella"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/prenomb"
-                android:textColor="@color/black"
-                android:text="Hichem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/prenomb"
+                    android:textColor="@color/black"
+                    android:text="Hichem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/emailb"
-                android:text="hichembella22@gmail.com"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/emailb"
+                    android:text="hichembella22@gmail.com"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
 
         </LinearLayout>
+        </android.support.v7.widget.LinearLayoutCompat>
+
     </android.support.v7.widget.CardView>
 
 

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initView();
 
-        Intent i = new Intent(this, BarcodeCaptureActivity.class);
+        Intent i = new Intent(this, DetailsInputActivity.class);
         startActivity(i);
     }
 

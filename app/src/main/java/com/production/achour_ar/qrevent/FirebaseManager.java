@@ -32,68 +32,65 @@ public class FirebaseManager {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int key = 0;
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    if(child.child("email").getValue().equals(email))
+                for (final DataSnapshot child : dataSnapshot.getChildren()) {
+                    if(child.child("email").getValue().equals(email)){
                         child.child("lastName").getRef().setValue(lastName);
                         child.child("firstName").getRef().setValue(firstName);
                         child.child("number").getRef().setValue(phoneNumber);
                         child.child("facebookLink").getRef().setValue(linkFacebook);
+                        if (bitmap != null) {
+                            String imageUrl ="image/" + lastName;
+                            StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
+                            final StorageReference ref = mStorageRef.child(imageUrl);
+                            child.child("imageUrl").getRef().setValue(imageUrl);
+
+
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG, 50, baos);
+                            byte[] data = baos.toByteArray();
+
+                            UploadTask uploadTask = ref.putBytes(data);
+                            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                                @Override
+                                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                                    if (!task.isSuccessful()) {
+                                        throw task.getException();
+                                    }
+
+                                    // Continue with the task to get the download URL
+                                    return ref.getDownloadUrl();
+                                }
+                            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Uri> task) {
+                                    if (task.isSuccessful()) {
+                                        Uri downloadUri = task.getResult();
+                                        Log.d("URLL", "onComplete: "+ downloadUri);
+                                        child.child("imageUrl").getRef().setValue(downloadUri.toString());
+                                    } else {
+                                        // Handle failures
+
+                                        // ...
+                                    }
+                                }
+                            });
+
+
+
+
+
+                        } else {
+                            child.child("imageUrl").getRef().setValue("null");
+
+                        }
+
+                    }
                 }
 
                 //get new id
-                final DatabaseReference UserRef = usersReference.child(String.valueOf(key));
-
-                UserRef.child("lastName").setValue(lastName);
-                UserRef.child("firstName").setValue(firstName);
-                UserRef.child("number").setValue(phoneNumber);
-                UserRef.child("facebookLink").setValue(linkFacebook);
-
-
-                if (bitmap != null) {
-                    String imageUrl ="image/" + lastName;
-                    StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
-                    final StorageReference ref = mStorageRef.child(imageUrl);
-                    UserRef.child("imageUrl").setValue(imageUrl);
-
-
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 50, baos);
-                    byte[] data = baos.toByteArray();
-
-                    UploadTask uploadTask = ref.putBytes(data);
-                    Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                        @Override
-                        public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                            if (!task.isSuccessful()) {
-                                throw task.getException();
-                            }
-
-                            // Continue with the task to get the download URL
-                            return ref.getDownloadUrl();
-                        }
-                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Uri> task) {
-                            if (task.isSuccessful()) {
-                                Uri downloadUri = task.getResult();
-                                Log.d("URLL", "onComplete: "+ downloadUri);
-                                UserRef.child("imageUrl").setValue(downloadUri.toString());
-                            } else {
-                                // Handle failures
-
-                                // ...
-                            }
-                        }
-                    });
 
 
 
-
-
-                } else {
-                    UserRef.child("imageUrl").setValue("null");
-
-                }
             }
 
             @Override

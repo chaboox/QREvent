@@ -143,8 +143,8 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
     private void setProfilePicToImageView(ImageView profilePicIV, Bitmap selectedBitmap) {
         profilePicIV.setImageBitmap(selectedBitmap);
         Log.d("PROFILE PIC", "setProfilePicToImageView: I'M ADJUSTING BRO");
-        profilePicIV.setAdjustViewBounds(true);
-        profilePicIV.setScaleType(ImageView.ScaleType.CENTER_CROP);
+      //  profilePicIV.setAdjustViewBounds(true);
+       // profilePicIV.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
     private void performCrop(String picturePath) {

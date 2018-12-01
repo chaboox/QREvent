@@ -13,7 +13,7 @@ public class Activity_Profil extends AppCompatActivity {
     private ImageView image_mail;
     private TextView nom_prenom;
     private TextView book;
-    private TextView e_mail;
+    private TextView email;
     private TextView nsta;
     private TextView link;
 
@@ -23,11 +23,15 @@ public class Activity_Profil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__profil);
+
         initView();
+
     }
+
+
     public void initView(){
         nom_prenom = findViewById(R.id.nomprenom);
-        e_mail = findViewById(R.id.email);
+        email = findViewById(R.id.email);
         book = findViewById(R.id.facebook);
         nsta = findViewById(R.id.insta);
         link = findViewById(R.id.linkedin);
@@ -37,4 +41,5 @@ public class Activity_Profil extends AppCompatActivity {
         image_linked = findViewById(R.id.image_linkedin);
         image_mail = findViewById(R.id.image_email);
     }
+
 }

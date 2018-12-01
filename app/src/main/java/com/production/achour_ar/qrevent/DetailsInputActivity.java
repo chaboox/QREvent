@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.production.achour_ar.qrevent.camera.BarcodeCaptureActivity;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -65,7 +67,7 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
         if (areFieldsValid()){
             //TODO firebase part (Adam farahni)
 
-            //startActivity(new Intent(DetailsInputActivity.this, ));
+            startActivity(new Intent(DetailsInputActivity.this, BarcodeCaptureActivity.class));
         }
     }
 

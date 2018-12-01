@@ -1,35 +1,29 @@
 package com.production.achour_ar.qrevent;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-public class Activity_EditProfil extends AppCompatActivity {
+public class DetailContact_Activity extends AppCompatActivity {
     private ImageView image_personel;
-
     private EditText nom_prenom;
     private EditText book;
     private EditText e_mail;
     private EditText nsta;
     private EditText link;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity__edit_profil);
+        setContentView(R.layout.activity_detail_contact_);
         initView();
-        Personne personne =(Personne) getIntent().getSerializableExtra("data1");
 
-        nom_prenom.setText(personne.getNom_prenom());
-        e_mail.setText(personne.getEmail());
-        book.setText(personne.getFacebook());
-        nsta.setText(personne.getInsta());
-        link.setText(personne.getLinkedin());
-
-
-
+        nom_prenom.setText("");
+        e_mail.setText("");
+        book.setText("");
+        nsta.setText("");
+        link.setText("");
     }
     public void initView(){
         nom_prenom = findViewById(R.id.nomprenom);
@@ -38,6 +32,6 @@ public class Activity_EditProfil extends AppCompatActivity {
         nsta = findViewById(R.id.insta);
         link = findViewById(R.id.linkedin);
         image_personel = findViewById(R.id.image_perso);
-
+    ;
     }
 }

@@ -14,12 +14,14 @@
         android:layout_margin="15dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/picprofileinput"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:src="@drawable/man"/>
 
         <TextView
+            android:id="@+id/changepictv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/pickpic"
@@ -92,6 +94,7 @@
 
 
     <Button
+        android:id="@+id/starteventbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/starteventstring"

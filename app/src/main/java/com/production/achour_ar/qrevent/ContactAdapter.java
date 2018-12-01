@@ -50,9 +50,9 @@ public class ContactAdapter extends ArrayAdapter<ContactModel> {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.row_item, parent, false);
-            //viewHolder.txtFirstname = (TextView) convertView.findViewById(R.id.);
-            //viewHolder.txtName = (TextView) convertView.findViewById(R.id.name);
-            //viewHolder.txtEmail = (TextView) convertView.findViewById(R.id.name);
+            viewHolder.txtFirstname = (TextView) convertView.findViewById(R.id.prenomb);
+            viewHolder.txtName = (TextView) convertView.findViewById(R.id.nomb);
+            viewHolder.txtEmail = (TextView) convertView.findViewById(R.id.emailb);
 
 
             result=convertView;

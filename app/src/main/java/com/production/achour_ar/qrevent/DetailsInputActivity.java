@@ -62,7 +62,26 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void startEvent() {
+        if (areFieldsValid()){
+            //TODO firebase part (Adam farahni)
 
+            //startActivity(new Intent(DetailsInputActivity.this, ));
+        }
+    }
+
+    private boolean areFieldsValid() {
+        boolean valid = true;
+        if (nameET.getText().toString().equals("")){
+            valid = false;
+            nameET.setError(getResources().getText(R.string.fieldrequired));
+            nameET.requestFocus();
+        }
+        if (firstnameET.getText().toString().equals("")){
+            valid = false;
+            firstnameET.setError(getResources().getText(R.string.fieldrequired));
+            firstnameET.requestFocus();
+        }
+        return valid;
     }
 
     @Override
@@ -99,7 +118,7 @@ public class DetailsInputActivity extends AppCompatActivity implements View.OnCl
                 // Set The Bitmap Data To ImageView
                 //profilPicIV.setImageBitmap(selectedBitmap);
                 setProfilePicToImageView(profilePicIV, selectedBitmap);
-                profilePicIV.setScaleType(ImageView.ScaleType.FIT_XY);
+                //profilePicIV.setScaleType(ImageView.ScaleType.FIT_XY);
 
                 //String pathToPic = saveToInternalStorage(selectedBitmap);
 
